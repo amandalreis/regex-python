@@ -63,3 +63,33 @@ for senha in casos_teste:
 
 print("-" * 40)
 
+#ER_2
+def validar_cpf(numero_cpf: str) -> str:
+    # Expressão regular para validar o formato do CPF
+    validacao = r'^\d{3}\.\d{3}\.\d{3}-\d{2}$'
+
+    # Verifica se o CPF corresponde ao padrão especificado
+    if re.match(validacao, numero_cpf):
+        return f"CPF {numero_cpf} válido."
+    else:
+        return f"CPF {numero_cpf} inválido."
+
+# Lista de CPFs de teste    
+cpf_teste = [
+    #CPFs Válidos
+    "123.456.789-09",
+    "987.654.321-00",
+    "456.789.123-45",
+    #CPFs Inválidos
+    "12a.456.789-09",  #contém uma letra "a
+    "123.456.789-0b",  #contém uma letra "b"
+    "123.456.78-909",  #formato incorreto: o traço está na posição errada
+    "123.456789-09",   #falta o ponto após o sexto dígito
+    "123.456.789-091" #contém um dígito extra
+]
+
+# Loop para validar cada CPF da lista
+for cpf in cpf_teste:
+    print(validar_cpf(cpf))
+
+print("-" * 40)
