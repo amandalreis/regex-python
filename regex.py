@@ -2,16 +2,31 @@ import re;
 
 # Questão 13
 def validar_numero_inteiro_ou_decimal(numero):
-    padrao = r'^[0-9]+(\.[0-9]+)?$'
+    padrao = r'^-?[0-9]+(\.[0-9]+)?$'
 
     numero_str = str(numero)
 
     if re.match(padrao, numero_str):
-        return f"{numero} é um número inteiro ou decimal válido."
+        return f"{numero} é um número inteiro ou decimal VÁLIDO."
     else:
-        return f"{numero} não é um número inteiro ou decimal válido."
-    
-print(validar_numero_inteiro_ou_decimal(2.3))
+        return f"{numero} é um número inteiro ou decimal INVÁLIDO."
+
+numeros_teste = [
+    2.3, #Formato válido.
+    "1", #Formato válido.
+    0, #Formato válido.
+    1000.0, #Formato válido.
+    101.26948, #Formato válido.
+    -102.34523, #Formato válido.
+    "-6", #Formato válido.
+    "9,8", #Formato inválido: caractere "," não é correto para definir números decimais.
+    "1.", #Formato inválido: caractere "." precisa ser acompanhado de uma casa decimal.
+    "2-09", #Formato inválido: caractere "-" não esperado entre os números.
+    "Amanda" #Formato inválido: "Amanda" não é um número.
+]
+
+for numero in numeros_teste:
+    print(validar_numero_inteiro_ou_decimal(numero))
 
 print("-" * 40)
 
