@@ -30,6 +30,7 @@ for numero in numeros_teste:
 
 print("-" * 40)
 
+# Questão 6
 def validar_cartao_credito(numero_cartao):
     # Expressão regular para validar somente espaços OU somente hífens
     padrao = r"^(\d{4} \d{4} \d{4} \d{4}|\d{4}-\d{4}-\d{4}-\d{4})$"
@@ -58,6 +59,7 @@ for cartao in cartoes_teste:
 
 print("-" * 40)
 
+# Questão 7
 def validar_senha(senha: str) -> str:
     
     regex = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]{8,}$'
@@ -78,7 +80,7 @@ for senha in casos_teste:
 
 print("-" * 40)
 
-#ER_2
+# Questão 2
 def validar_cpf(numero_cpf: str) -> str:
     # Expressão regular para validar o formato do CPF
     validacao = r'^\d{3}\.\d{3}\.\d{3}-\d{2}$'
@@ -111,7 +113,6 @@ print("-" * 40)
 
 
 #Questão 11
-import re
 # Regex para validar o RG brasileiro no formato xx.xxx.xxx-x
 rg_pattern = r"^\d{2}\.\d{3}\.\d{3}-\d{1}$"
 # Função para validar o RG
@@ -143,9 +144,6 @@ for rg_obj in rgs:
 print("-" * 40)
 
 #Questão 19
-
-import re
-
 def validar_numero_serie(numero_serie: str) -> bool:
     # Regex para validar número de série
     pattern = r'^[A-Za-z0-9]{4}(-?[A-Za-z0-9]{4}){3}$'
