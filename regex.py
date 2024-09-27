@@ -139,3 +139,33 @@ for rg_obj in rgs:
 # RG: 98.765.432-1 | Válido esperado: True | Validação: True
 # RG: 12.34.5678-9 | Válido esperado: False | Validação: False
 # RG: 00.111.222-3 | Válido esperado: True | Validação: True
+
+print("-" * 40)
+
+#Questão 19
+
+import re
+
+def validar_numero_serie(numero_serie: str) -> bool:
+    # Regex para validar número de série
+    pattern = r'^[A-Za-z0-9]{4}(-?[A-Za-z0-9]{4}){3}$'
+    
+    # Verifica se o número de série corresponde ao padrão
+    if re.match(pattern, numero_serie):
+        return True
+    return False
+
+# Testando exemplos
+test_strings = [
+    "123A-B123-BB12-12AZ",  # Válido com hífens
+    "123AB123BB1212AZ",     # Válido sem hífens
+    "123A-B123-BB12-12A",   # Inválido (menos de 4 caracteres no último bloco)
+    "123A-B123-BB12-12AZZ"  # Inválido (mais de 4 caracteres no último bloco)
+]
+
+# Validando as strings de teste
+for s in test_strings:
+    if validar_numero_serie(s):
+        print(f"{s} é válido.")
+    else:
+        print(f"{s} é inválido.")
