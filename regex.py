@@ -169,6 +169,7 @@ for s in test_strings:
         print(f"{s} é inválido.")
 
 print("-" * 40)
+
 #Questão 10 
 def validar_codigo_postal(codigo_postal):
     # Expressão regular para validar código postal no formato xxxxx ou xxxxx-xxxx
