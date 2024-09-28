@@ -167,3 +167,23 @@ for s in test_strings:
         print(f"{s} é válido.")
     else:
         print(f"{s} é inválido.")
+
+print("-" * 40)
+#Questão 10 
+def validar_codigo_postal(codigo_postal):
+    # Expressão regular para validar código postal no formato xxxxx ou xxxxx-xxxx
+    padrao = r'^\d{4,5}(-\d{3,4})?$'
+    
+    # Verifica se o código postal corresponde ao padrão
+    if re.match(padrao, codigo_postal):
+        return True
+    else:
+        return False
+
+# Testando a função
+codigos_test = ['1234', '98765', '54321-1234', '54321-123', '87654321', '56789-', '56789-12345']
+for codigo in codigos_test:
+    if validar_codigo_postal(codigo):
+        print(f"{codigo} é um código postal válido.")
+    else:
+        print(f"{codigo} é um código postal inválido.")
